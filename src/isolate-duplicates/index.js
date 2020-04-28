@@ -4,21 +4,21 @@ function isolateDuplicates(text) {
   }
 
   text = [...text];
-  let identicalCharacters = new Set(text);
   let charactersGrouping = [];
+  let result = "";
+  let numberOfBrackets = 0;
 
 
   for(let i = 0; i < text.length; i++) {
     //pick first character of a group for comparisons
-    console.log(i);
     let currentLetter = text[i];
     let currentLetterIndex = text.indexOf(currentLetter);
     let group = [];
 
     //compare first letter of group
     for (let j = currentLetterIndex; j < text.length; j++) {
-      if(text[j] == currentLetter) {
-        group.push(text[i]);
+      if(text[j].toLowerCase() == currentLetter.toLowerCase()) {
+        group.push(text[j]);
         //check for last character
         if(j == text.length - 1) {
           i = j;
@@ -31,14 +31,26 @@ function isolateDuplicates(text) {
         break;
       }
     }
-
   }
-  console.log(charactersGrouping)
 
-
-
+  //spread characters
+  for(let k = 0; k < charactersGrouping.length; k++) {
+    if(charactersGrouping[k].length > 2) {
+      result += charactersGrouping[k][0];
+      result += charactersGrouping[k][1];
+      result += "[";
+      for(let l = 2; l < charactersGrouping[k].length; l++) {
+        result += charactersGrouping[k][l];
+      }
+      result += "]";
+      numberOfBrackets++;
+    } else {
+      let char = charactersGrouping[k].join();
+      char = char.replace(",", "");
+      result += char;
+    }
+  }
+  return (result, numberOfBrackets);
 }
-
-isolateDuplicates("aaaabbcdefffffffg");
 
 module.exports = isolateDuplicates;
