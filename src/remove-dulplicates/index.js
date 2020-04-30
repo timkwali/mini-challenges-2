@@ -17,9 +17,12 @@ function removeDuplicates(obj) {
     object[keys[i]] = obj[keys[i]];
   }
   obj = object;
-  console.log(obj)
+  //convert to array
+  obj = Object.entries(obj);
 
-  //remove duplicates
+
+  //compare values and remove duplicates
+
 
 }
 
