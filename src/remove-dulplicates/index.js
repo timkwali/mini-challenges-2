@@ -40,7 +40,12 @@ function removeDuplicates(obj) {
     }
   }
 
-
+  //convert array back to object
+  let result = {};
+  for(let m = 0; m < obj.length; m++) {
+    result[`${obj[m][0]}`] = obj[m][1];
+  }
+  return result
 }
 
 removeDuplicates(
