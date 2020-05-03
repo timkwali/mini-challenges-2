@@ -2,7 +2,7 @@ function removeDuplicates(obj) {
 
   //remove duplicate elements of object values
   for(let key in  obj) {
-    let ky = new Set(obj[key]);
+    let ky = [...new Set(obj[key])];
     obj[key] = ky;
   }
 
@@ -20,18 +20,37 @@ function removeDuplicates(obj) {
   //convert to array
   obj = Object.entries(obj);
 
+  //compare and remove duplicates
+  for(let i = obj.length - 1; i > 0; i--) { //last array in obj for comparison
+    let lastArray = obj[i][1];
 
-  //compare values and remove duplicates
+    for(let j = 0; j < lastArray.length; j++) { //pick an element of the array to compate to the rest of arrays
+      let currentLastArrayElement = lastArray[j];
+
+      for(let k = i - 1; k >= 0; k--) {
+        let testArray = obj[k][1];
+
+        for(let l = 0; l < testArray.length; l++) {
+          let currentTestArrayElement = testArray[l];
+          if(currentLastArrayElement == currentTestArrayElement) {
+            testArray.splice(l, 1);
+          }
+        }
+      }
+    }
+  }
 
 
 }
 
 removeDuplicates(
   {
-    "2345": ["A", "B", "C", "Y", "D", "B"],
-    "45": ["A", "B", "D", "A"],
-    "325": ["A", "B", "T"],
-    "5": ["Q", "C"]
+    "12": [],
+    "350": ["C", "A"],
+    "291": ["G"],
+    "236": ["L", "X", "H"],
+    "91": ["P", "R", "S", "D"],
+    "53": ["B"],
   }
 );
 //module.exports = removeDuplicates;
