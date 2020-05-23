@@ -68,7 +68,6 @@ function morse(text) {
   let finalGroup = [];
   let result = "";
 
-
   //group code by words they form and remove single spaces
   for(let i = 0; i < text.length; i++) {
     let codeGroup = text[i].split(" ");

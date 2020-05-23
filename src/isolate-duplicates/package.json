@@ -1,0 +1,11 @@
+{
+  "name": "clear",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "Create a program that will take in a string as input and, if there are duplicates of more than two alphabetical characters in the string, returns the array with the first index being a string with all the extra characters in a bracket and the second index being the total number of duplicates found."
+}

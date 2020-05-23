@@ -1,0 +1,11 @@
+{
+  "name": "challenges",
+  "version": "1.0.0",
+  "description": "The Morse code encodes every character as a sequence of \"dots\" and \"dashes\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

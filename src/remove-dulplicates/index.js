@@ -48,14 +48,4 @@ function removeDuplicates(obj) {
   return result
 }
 
-removeDuplicates(
-  {
-    "12": [],
-    "350": ["C", "A"],
-    "291": ["G"],
-    "236": ["L", "X", "H"],
-    "91": ["P", "R", "S", "D"],
-    "53": ["B"],
-  }
-);
-//module.exports = removeDuplicates;
+module.exports = removeDuplicates;
